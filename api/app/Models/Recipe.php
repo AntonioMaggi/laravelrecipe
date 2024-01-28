@@ -9,7 +9,22 @@ class Recipe extends Model
 {
     use HasFactory;
 
-    protected $table = 'Recipe';
+    protected $fillable = [
+        'recipeTitle',
+        'description',
+        'ingredients',
+        'instructions',
+        'prepTime',
+        'cookingTime',
+        'difficultyLevel',
+    ];
 
+    // If you want to cast certain attributes to specific types
+    protected $casts = [
+        'ingredients' => 'array',
+        'instructions' => 'array',
+    ];
 
+    // You might want to customize the table name if needed
+    protected $table = 'recipes';
 }
